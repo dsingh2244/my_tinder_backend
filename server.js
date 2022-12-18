@@ -1,6 +1,5 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import Cors from 'Cors';
 import Cards from './dbcards.js';
 
 const app= express();
@@ -14,8 +13,8 @@ async function main() {
 }
 
 app.use(express.json());
-app.use(Cors());
-app.get('/',(req,res)=> res.status(200).send('Hello'));
+
+app.get('/',(req,res)=> res.status(200).send('Hllo'));
 app.post('/tinder/cards',(req,res)=>{
     const dbCard= req.body;
     Cards.create( dbCard, (err,data)=>{
