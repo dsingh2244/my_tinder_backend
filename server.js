@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import Cards from './dbcards.js';
+import Cards from './dbCards.js';
+import Cors from 'cors';
 
 const app= express();
 const port = process.env.PORT || 8001 ;
@@ -13,7 +14,7 @@ async function main() {
 }
 
 app.use(express.json());
-
+app.use(Cors());
 app.get('/',(req,res)=> res.status(200).send('Hllo'));
 app.post('/tinder/cards',(req,res)=>{
     const dbCard= req.body;
